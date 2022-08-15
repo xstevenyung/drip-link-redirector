@@ -20,10 +20,13 @@ jobs:
         shell: bash
         env:
           DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
-        run: supabase link --project-ref qqoqbuazmxefhgndugew -p ${{ secrets.DATABASE_PASSWORD }}
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: supabase link --project-ref qqoqbuazmxefhgndugew -p $DATABASE_PASSWORD
 
       - name: Push Migrations
-        run: supabase db push
+        env:
+          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+        run: supabase db push -p $DATABASE_PASSWORD
 
       - uses: actions/setup-node@v3
         with:
