@@ -1,0 +1,9 @@
+{
+  "imports": {
+    "@/": "./",
+    "drip/": "../../",
+    "preact": "../../preact/mod.ts",
+    "preact/hooks": "../../preact/hooks.ts",
+    "preact-render-to-string": "../../preact/render-to-string.ts"
+  }
+}
