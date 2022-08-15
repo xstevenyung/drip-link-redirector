@@ -20,7 +20,7 @@ jobs:
         shell: bash
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-        run: supabase db remote set $SUPABASE_URL
+        run: supabase db remote --help
 
       - name: Push Migrations
         run: supabase db push
