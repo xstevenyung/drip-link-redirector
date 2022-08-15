@@ -19,8 +19,8 @@ jobs:
       - name: Set Remote DB
         shell: bash
         env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-        run: supabase db remote --help
+          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+        run: supabase link --project-ref qqoqbuazmxefhgndugew -p ${{ secrets.DATABASE_PASSWORD }}
 
       - name: Push Migrations
         run: supabase db push
